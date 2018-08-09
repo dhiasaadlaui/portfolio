@@ -7,6 +7,17 @@ import { EducationComponent } from './education/education.component';
 import { SkillsComponent } from './skills/skills.component';
 import { HobbiesComponent } from './hobbies/hobbies.component';
 import { MiscellaneousComponent } from './miscellaneous/miscellaneous.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule,Routes, Router} from '@angular/router'
+
+const appRoutes: Routes= [
+{path:'education',component:EducationComponent},
+{path:'hobbies',component:HobbiesComponent},
+{path:'miscellaneous',component:MiscellaneousComponent},
+{path:'skills',component:SkillsComponent},
+{path:'profile',component:ProfileComponent},
+{path:'',redirectTo:'/profile',pathMatch:'full'}
+];
 
 @NgModule({
   declarations: [
@@ -15,10 +26,11 @@ import { MiscellaneousComponent } from './miscellaneous/miscellaneous.component'
     EducationComponent,
     SkillsComponent,
     HobbiesComponent,
-    MiscellaneousComponent
+    MiscellaneousComponent,
+    NavbarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
