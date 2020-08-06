@@ -1,0 +1,26 @@
+<div class="row">
+  <div *ngFor="let repo of repositories" class="col-md-4" >
+  <mat-card style="margin: 5px;"  class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar style="  background-image: url({{repo.owner.avatar_url}});
+      background-size: cover;"></div>
+      <mat-card-title> <a [href]="repo.html_url" target="_blank">{{repo.name}}</a>   </mat-card-title>
+      <mat-card-subtitle>{{repo.full_name}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li>  created at : {{repo.created_at |date:'dd-MM-yyyy'}}
+         </li>
+          <li>
+
+            last update : {{repo.created_at |date:'dd-MM-yyyy'}}
+          </li>
+        </ul>
+    </mat-card-content>
+
+  </mat-card>
+</div>
+</div>
+
+
+
