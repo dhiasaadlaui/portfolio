@@ -1,5 +1,5 @@
-<div class="row">
-  <div *ngFor="let repo of repositories" class="col-md-4" >
+<div class="row" style="">
+  <div *ngFor="let repo of repositories" class="col-md-12 d-flex justify-content-center" >
   <mat-card style="margin: 5px;"  class="example-card">
     <mat-card-header>
       <div mat-card-avatar style="  background-image: url({{repo.owner.avatar_url}});
@@ -8,17 +8,25 @@
       <mat-card-subtitle>{{repo.full_name}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <ul>
-        <li>  created at : {{repo.created_at |date:'dd-MM-yyyy'}}
-         </li>
-          <li>
+      <p>
+        {{repo.description}}
+      </p>
 
-            last update : {{repo.created_at |date:'dd-MM-yyyy'}}
-          </li>
-        </ul>
     </mat-card-content>
-
+    <mat-card-actions>
+      <button mat-raised-button color="warn">Watch</button>
+      <button mat-raised-button color="primary">Forks {{repo.forks_count}}</button>
+      <button mat-raised-button color="primary">Stars  {{repo.stargazers_count}}</button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <div class="row">
+        <div class="col-md-2"><mat-card-subtitle>Created at : {{repo.created_at |date:'dd-MM-yyyy'}}</mat-card-subtitle></div>
+        <div class="col-md-8"></div>
+        <div class="col-md-2">  <mat-card-subtitle>Last update : {{repo.updated_at |date:'dd-MM-yyyy'}}</mat-card-subtitle></div>
+      </div>
+    </mat-card-footer>
   </mat-card>
+
 </div>
 </div>
 
