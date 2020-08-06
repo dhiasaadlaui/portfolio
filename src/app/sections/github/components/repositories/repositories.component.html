@@ -1,5 +1,20 @@
 <div class="row" style="">
-  <div *ngFor="let repo of repositories" class="col-md-12 d-flex justify-content-center" >
+  <form style="width: 100%;">
+    <mat-form-field style="width: 100%;">
+      <mat-label>Filter</mat-label>
+      <input (keyup)="onFilterChange()" [(ngModel)]="filter" name='filter' matInput placeholder="Ex. Angular">
+    </mat-form-field>
+    <mat-progress-bar *ngIf="isLoading" mode="query"></mat-progress-bar>
+  </form>
+  <mat-paginator class="col-md-12"
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onPageChange($event)"
+  (selectionChange)="onPageSizechange($event)"
+  >
+</mat-paginator>
+  <div *ngFor="let repo of displayedRepositories" class="col-md-12 d-flex justify-content-center" >
   <mat-card style="margin: 5px;"  class="example-card">
     <mat-card-header>
       <div mat-card-avatar style="  background-image: url({{repo.owner.avatar_url}});
@@ -29,6 +44,3 @@
 
 </div>
 </div>
-
-
-
