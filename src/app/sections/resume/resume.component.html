@@ -1,1 +1,10 @@
-<h1 style="vertical-align: middle; text-align: center;padding: 20%;font-size: 30px;">This section coming soon !</h1>
+<div>
+  language
+  <button (click)="setFR()">FR</button>
+  <button  (click)="setEN()">EN</button>
+  <h1>current language: {{language}}</h1>
+</div>
+<button onclick="startReco()" class="talk" >Talk</button>
+<h3 id="listening" style="display: none;">Listening</h3>
+<h1 id="speech"></h1>
+
